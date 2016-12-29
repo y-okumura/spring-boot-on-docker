@@ -40,8 +40,14 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.codehaus.groovy:groovy')
-	testRuntime('com.h2database:h2')
+	runtime('com.h2database:h2')
 	runtime('mysql:mysql-connector-java')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+def profiles = 'dev'
+
+bootRun {
+  args = ["--spring.profiles.active=" + profiles]
 }

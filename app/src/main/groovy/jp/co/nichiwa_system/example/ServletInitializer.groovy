@@ -1,4 +1,4 @@
-package jp.co.nichiwa_system
+package jp.co.nichiwa_system.example
 
 import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.boot.web.support.SpringBootServletInitializer

@@ -1,4 +1,4 @@
-package jp.co.nichiwa_system
+package jp.co.nichiwa_system.example
 
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Options

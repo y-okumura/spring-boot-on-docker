@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://db:3306/ex_db
+    driverClassName: com.mysql.jdbc.Driver
+    username: ex_user
+    password: ex_pass

@@ -11,6 +11,6 @@ class HelloController {
 
     @RequestMapping('/')
     String hello() {
-        return "Hello, world!!(${mapper.sysdate()})";
+        return "${mapper.greeting}!!(${mapper.sysdate()})";
     }
 }

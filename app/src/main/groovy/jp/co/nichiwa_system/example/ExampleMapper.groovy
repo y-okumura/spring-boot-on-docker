@@ -8,4 +8,7 @@ import org.apache.ibatis.annotations.Select
 interface ExampleMapper {
   @Select('select sysdate()')
   Date sysdate();
+
+  @Select("select 'こんにちは、世界' as greeting")
+  String getGreeting();
 }

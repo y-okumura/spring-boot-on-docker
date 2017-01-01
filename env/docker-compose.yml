@@ -2,7 +2,12 @@ version: '2'
 services:
   db:
     image: mysql
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: >
+      mysqld
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --general_log=1
+      --general_log_file=/var/log/mysql/query.log
     ports:
       - '3306:3306'
     environment:
@@ -13,6 +18,7 @@ services:
       MYSQL_PASSWORD: ex_pass
     volumes:
       - ./data:/var/lib/mysql
+      - ./logs/mysql:/var/log/mysql
   ap:
     image: tomcat:8.5-jre8
     environment:
@@ -21,6 +27,7 @@ services:
     volumes:
       - ../app/build/libs/example-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/example.war
       - ./server.xml:/usr/local/tomcat/conf/server.xml
+      - ./logs/tomcat/:/usr/local/tomcat/logs/
     ports:
       - 8080:8080
     links:

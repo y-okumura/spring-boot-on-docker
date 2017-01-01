@@ -28,6 +28,7 @@ services:
       - ../app/build/libs/example-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/example.war
       - ./server.xml:/usr/local/tomcat/conf/server.xml
       - ./logs/tomcat/:/usr/local/tomcat/logs/
+      - ./testdata/:/var/local/testdata/
     ports:
       - 8080:8080
     links:

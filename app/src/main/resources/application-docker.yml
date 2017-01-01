@@ -4,3 +4,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     username: ex_user
     password: ex_pass
+flyway:
+  locations:
+    - classpath:db/migration
+    - filesystem:/var/local/testdata

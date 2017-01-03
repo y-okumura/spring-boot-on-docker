@@ -33,3 +33,12 @@ services:
       - 8080:8080
     links:
       - db
+  tcpdump:
+    build: ./tcpdump
+    command: tcpdump -s0 -X -G 1 -w /var/log/dump/tcpdump_%Y%m%d_%H%M%S.cap port 8080
+    network_mode: "service:ap"
+    environment:
+      TZ: Asia/Tokyo
+      SPRING_PROFILES_ACTIVE: docker
+    volumes:
+      - ./logs/dump/:/var/log/dump/

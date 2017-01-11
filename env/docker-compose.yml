@@ -24,13 +24,17 @@ services:
     environment:
       TZ: Asia/Tokyo
       SPRING_PROFILES_ACTIVE: docker
+      JPDA_ADDRESS: 8000
+      JPDA_TRANSPORT: dt_socket
     volumes:
       - ../app/build/libs/example-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/example.war
       - ./server.xml:/usr/local/tomcat/conf/server.xml
       - ./logs/tomcat/:/usr/local/tomcat/logs/
       - ./testdata/:/var/local/testdata/
+    command: catalina.sh jpda run
     ports:
       - 8080:8080
+      - 8000:8000
     links:
       - db
   tcpdump:
